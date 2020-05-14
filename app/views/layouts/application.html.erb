@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="navbar-fixed-top navbar-inverse">
+      <%= render "layouts/share" %>
+    </div>
+    <div class="con">
+      <% if flash.notice.present? %>
+        <% flash.each do |key, value| %>
+          <div class="key">
+            <%= value %>
+          </div>
+        <% end %>
+        <%= yield %>
+      <% else %>
+        <%= yield %>
+      <% end %>
+    </div>
+  </body>
+</html>

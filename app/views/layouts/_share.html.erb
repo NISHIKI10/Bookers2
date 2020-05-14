@@ -1,0 +1,20 @@
+<div class="container">
+  <nav class="nav navbar-nav navbar-left">
+    <h3 class="nav-title">Bookers</h3>
+  </nav>
+  <nav>
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li><%= link_to "Home", user_path(current_user.id), {class: "icon glyphicon glyphicon-cutlery"}%></li>
+        <li><%= link_to "Users", users_path, {class: "icon glyphicon glyphicon-user"}%></li>
+        <li><%= link_to "Books", books_path, {class: "icon glyphicon glyphicon-thumbs-up"}%></li>
+        <li><%= link_to "logout", destroy_user_session_path, method: :delete, class: "icon glyphicon glyphicon-log-in" %></li>
+      <% else %>
+        <li><%= link_to "Home", root_path, {class: "icon glyphicon glyphicon-cutlery"}%></li>
+        <li><%= link_to "About", home_about_path, {class: "icon glyphicon glyphicon-tags"}%></li>
+        <li><%= link_to "sign up", new_user_registration_path, {class: "icon glyphicon glyphicon-user"}%></li>
+        <li><%= link_to "login", new_user_session_path, {class: "icon glyphicon glyphicon-log-in"}%></li>
+      <% end %>
+    </ul>
+  </nav>
+</div>

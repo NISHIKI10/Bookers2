@@ -1,0 +1,21 @@
+<h2>User info</h2>
+<table class="table">
+  <tbody>
+    <tr>
+      <td><%= attachment_image_tag user, :profile_imaged, format: 'jpeg', class: "img profile_image", fallback: "no_image.jpg", size: "100x100" %></td> 
+    </tr>
+    <tr>
+      <td><strong>name</strong></td>
+      <td><strong><%= user.name %></strong></td>
+    </tr>
+    <tr>
+      <td><strong>introduction</strong></td>
+      <td><strong><%= user.introduction %></strong></td>
+    </tr>
+  </tbody>
+</table>
+<% if user_signed_in? && current_user.id == @user.id%>
+  <%= link_to "", edit_user_path(user.id), class: 'btn btn-default btn-block glyphicon glyphicon-apple'%>
+<% else %>
+  <%= link_to "", user_path(current_user.id), class: 'btn btn-default btn-block glyphicon glyphicon-apple'%>
+<% end %>
